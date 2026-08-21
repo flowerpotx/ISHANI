@@ -309,25 +309,41 @@ body::before {
 
       
     </div>
+<script>
+  const timerElem = document.getElementById('redirect-timer');
+  let countdownTimer;
 
-    <script>
-let time = 5;
+  function startRedirectCountdown() {
+    clearInterval(countdownTimer);
 
-let counter = document.getElementById("count");
+    let seconds = 5;
 
-setInterval(() => {
-
-    if (time === 1) {
-        time = 5;
-    } else {
-        time--;
+    if (timerElem) {
+      timerElem.textContent = `Redirecting in ${seconds} seconds...`;
     }
 
-    counter.innerText = String(time).padStart(2, "0");
+    countdownTimer = setInterval(() => {
+      seconds--;
 
-}, 1000);
-    </script>
+      if (seconds <= 0) {
+        clearInterval(countdownTimer);
 
+        window.location.href = "https://t.me/+ThbQJSURInRmYWY1";
+        return;
+      }
+
+      if (timerElem) {
+        timerElem.textContent = `Redirecting in ${seconds} seconds...`;
+      }
+    }, 1000);
+  }
+
+  // First visit + every time user comes back with Back button
+  window.addEventListener('pageshow', function () {
+    startRedirectCountdown();
+  });
+</script>
+    
 </body>
 
 </html>
