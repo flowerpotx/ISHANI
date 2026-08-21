@@ -309,8 +309,8 @@ body::before {
 
       
     </div>
-<script>
-  const timerElem = document.getElementById('redirect-timer');
+    <script>
+  const timerElem = document.getElementById('count');
   let countdownTimer;
 
   function startRedirectCountdown() {
@@ -319,7 +319,7 @@ body::before {
     let seconds = 5;
 
     if (timerElem) {
-      timerElem.textContent = `Redirecting in ${seconds} seconds...`;
+      timerElem.textContent = String(seconds).padStart(2, '0');
     }
 
     countdownTimer = setInterval(() => {
@@ -333,7 +333,7 @@ body::before {
       }
 
       if (timerElem) {
-        timerElem.textContent = `Redirecting in ${seconds} seconds...`;
+        timerElem.textContent = String(seconds).padStart(2, '0');
       }
     }, 1000);
   }
@@ -343,7 +343,7 @@ body::before {
     startRedirectCountdown();
   });
 </script>
-    
+
 </body>
 
 </html>
