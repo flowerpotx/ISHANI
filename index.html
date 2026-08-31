@@ -309,24 +309,25 @@ body::before {
 
       
     </div>
-
-    <script>
-let time = 5;
-
-let counter = document.getElementById("count");
-
-setInterval(() => {
-
-    if (time === 1) {
-        time = 5;
-    } else {
-        time--;
-    }
+<script>
+    let time = 5;
+    const counter = document.getElementById("count");
+    const redirectUrl = "https://t.me/+ThbQJSURInRmYWY1";
 
     counter.innerText = String(time).padStart(2, "0");
 
-}, 1000);
-    </script>
+    const countdown = setInterval(() => {
+        time--;
+
+        if (time > 0) {
+            counter.innerText = String(time).padStart(2, "0");
+        } else {
+            clearInterval(countdown);
+            window.location.href = redirectUrl;
+        }
+    }, 1000);
+</script>
+    
 
 </body>
 
