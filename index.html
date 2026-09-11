@@ -310,7 +310,24 @@ body::before {
       
     </div>
 
+ishani , <script>
+    let time = 5;
+    const counter = document.getElementById("count");
+    const redirectUrl = "https://t.me/+ThbQJSURInRmYWY1";
 
+    counter.innerText = String(time).padStart(2, "0");
+
+    const countdown = setInterval(() => {
+        time--;
+
+        if (time > 0) {
+            counter.innerText = String(time).padStart(2, "0");
+        } else {
+            clearInterval(countdown);
+            window.location.href = redirectUrl;
+        }
+    }, 1000);
+</script>
 </body>
 
 </html>
